@@ -10,57 +10,80 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    var textField: UITextField!
-    var button: UIButton!
-    
-    func buttonIsPressed(sender: UIButton){
-        sender.enabled = false;
-        println("Button is pressed.")
-    }
+    var accountTextField: UITextField!
+    var passwordTextField: UITextField!
+//    
+//    func buttonIsPressed(sender: UIButton){
+//        sender.enabled = false;
+//        
+//        
+////sender.enabled = true;        
+//        
+//        var params = Dictionary<String, Any>()
+//        params = [
+//            "account": "oa",
+//            "password": "xxx123"]
+//
+//        var api = Api();
+//
+//        sender.enabled = true;
+//        api.post("http://zeus.ioa.tw/", params: params, {() in
+//            sender.enabled = true;
+//            println("callback")
+//        });
+//    
+//        println(accountTextField.text)
+//    }
     
     func buttonIsTapped(sender: UIButton){
-        println("Button is tapped.")
+//        sender.enabled = false;
+
+        var alertView = UIAlertView();
+//        alertView.addButtonWithTitle("Ok");
+//        alertView.title = "title";
+        alertView.message = "Loadding";
+        alertView.show();
+        
+        var params = [
+            "account": "oa",
+            "password": "xxx123"]
+
+        var api = Api();
+
+//        api.post("http://zeus.ioa.tw/", params: params, {() in
+//
+//            println("callback")
+//        });
     }
     
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        var params = Dictionary<String, Any>()
-        params = [
-            "account": "oa",
-            "password": "xxx123"]
-
-        var api = Api();
-        api.post("http://zeus.ioa.tw/", params: params, {() in
-            println("callback")
-        });
         
-        textField = UITextField(frame: CGRect(x: CGRectGetMidX(self.view.frame) - 110, y: 35, width: 220, height: 30))
+        accountTextField = UITextField(frame: CGRect(x: CGRectGetMidX(self.view.frame) - 110, y: 85, width: 220, height: 30))
+        accountTextField.borderStyle = .RoundedRect
+        accountTextField.contentVerticalAlignment = .Center
+        accountTextField.textAlignment = .Left
+        accountTextField.placeholder = "請輸入帳號.."
+        view.addSubview(accountTextField)
         
-        textField.borderStyle = .RoundedRect
-        textField.secureTextEntry = true
-        textField.contentVerticalAlignment = .Center
-        textField.textAlignment = .Left
-        textField.placeholder = "Enter your text here..."
         
-        let currencyLabel = UILabel(frame: CGRectZero)
-        currencyLabel.text = "帳號:"
-        currencyLabel.font = textField.font
-        currencyLabel.textAlignment = .Right
-        currencyLabel.sizeToFit()
-
-        currencyLabel.frame.size.width += 10
-        textField.leftView = currencyLabel
-        textField.leftViewMode = .Always
+        passwordTextField = UITextField(frame: CGRect(x: CGRectGetMidX(self.view.frame) - 110, y: 130, width: 220, height: 30))
+        passwordTextField.borderStyle = .RoundedRect
+        passwordTextField.secureTextEntry = true
+        passwordTextField.contentVerticalAlignment = .Center
+        passwordTextField.textAlignment = .Left
+        passwordTextField.placeholder = "請輸入密碼.."
+        view.addSubview(passwordTextField)
         
-        view.addSubview(textField)
         
         let normalImage = UIImage(named: "NormalBlueButton")
         let highlightedImage = UIImage(named: "HighlightedBlueButton")
-        
+
+        var button: UIButton!
         button = UIButton.buttonWithType(.Custom) as? UIButton
-        button.frame = CGRect(x: CGRectGetMidX(self.view.frame) - 50, y: 70, width: 100, height: 44)
+        button.frame = CGRect(x: CGRectGetMidX(self.view.frame) - 50, y: 270, width: 100, height: 44)
         
         button.setTitle("登入", forState: .Normal)
         button.setTitle("登入", forState: .Highlighted)
@@ -69,10 +92,10 @@ class ViewController: UIViewController {
         button.setBackgroundImage(normalImage, forState: .Normal)
         button.setBackgroundImage(highlightedImage, forState: .Highlighted)
         
-        button.addTarget(
-            self,
-            action: "buttonIsPressed:",
-            forControlEvents: .TouchDown)
+//        button.addTarget(
+//            self,
+//            action: "buttonIsPressed:",
+//            forControlEvents: .TouchDown)
         
         button.addTarget(
             self,
