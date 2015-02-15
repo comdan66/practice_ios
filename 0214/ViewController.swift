@@ -43,21 +43,22 @@ class ViewController: UIViewController {
 //        alertView.title = "title";
         alertView.message = "Loadding";
         alertView.show();
-        
-        var params = Dictionary<String, Any>()
-        params = [
-            "account": "oa",
-            "password": "xxx123"]
-
-        var api = Api();
-
-        api.post("http://zeus.ioa.tw/", params: params, {() in
-            alertView.message = "sss";
-            //            alertView.dismissWithClickedButtonIndex(-1, animated: true);
-            
-            
-            println("callback")
-        });
+        sleep(2)
+        alertView.message = "sss";
+//        var params = Dictionary<String, Any>()
+//        params = [
+//            "account": "oa",
+//            "password": "xxx123"]
+//
+//        var api = Api();
+//
+//        api.post("http://zeus.ioa.tw/", params: params, {() in
+//            alertView.message = "sss";
+//            //            alertView.dismissWithClickedButtonIndex(-1, animated: true);
+//            
+//            
+//            println("callback")
+//        });
     }
     
 
