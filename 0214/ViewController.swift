@@ -12,28 +12,6 @@ class ViewController: UIViewController {
     
     var accountTextField: UITextField!
     var passwordTextField: UITextField!
-//    
-//    func buttonIsPressed(sender: UIButton){
-//        sender.enabled = false;
-//        
-//        
-////sender.enabled = true;        
-//        
-//        var params = Dictionary<String, Any>()
-//        params = [
-//            "account": "oa",
-//            "password": "xxx123"]
-//
-//        var api = Api();
-//
-//        sender.enabled = true;
-//        api.post("http://zeus.ioa.tw/", params: params, {() in
-//            sender.enabled = true;
-//            println("callback")
-//        });
-//    
-//        println(accountTextField.text)
-//    }
     
     func buttonIsTapped(sender: UIButton){
         var alertView = UIAlertView();
@@ -49,10 +27,8 @@ class ViewController: UIViewController {
         var api = Api();
 
         api.post("http://zeus.ioa.tw/", params: params, {() in
-            
-//            alertView.message = "zzzzz";
-            
-//            alertView.dismissWithClickedButtonIndex(-1, animated: true);
+        
+            alertView.dismissWithClickedButtonIndex(-1, animated: true);
             
             var okAlertView = UIAlertView();
             okAlertView.message = "OK";
