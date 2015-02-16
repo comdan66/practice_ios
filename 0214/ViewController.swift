@@ -36,29 +36,30 @@ class ViewController: UIViewController {
 //    }
     
     func buttonIsTapped(sender: UIButton){
-//        sender.enabled = false;
-
         var alertView = UIAlertView();
-//        alertView.addButtonWithTitle("Ok");
-//        alertView.title = "title";
         alertView.message = "Loadding";
         alertView.show();
-        sleep(2)
-        alertView.message = "sss";
-//        var params = Dictionary<String, Any>()
-//        params = [
-//            "account": "oa",
-//            "password": "xxx123"]
-//
-//        var api = Api();
-//
-//        api.post("http://zeus.ioa.tw/", params: params, {() in
-//            alertView.message = "sss";
-//            //            alertView.dismissWithClickedButtonIndex(-1, animated: true);
-//            
-//            
-//            println("callback")
-//        });
+
+
+        var params = Dictionary<String, Any>()
+        params = [
+            "account": "oa",
+            "password": "xxx123"]
+
+        var api = Api();
+
+        api.post("http://zeus.ioa.tw/", params: params, {() in
+            
+//            alertView.message = "zzzzz";
+            
+//            alertView.dismissWithClickedButtonIndex(-1, animated: true);
+            
+            var okAlertView = UIAlertView();
+            okAlertView.message = "OK";
+            okAlertView.show();
+            
+            println("callback")
+        });
     }
     
 
