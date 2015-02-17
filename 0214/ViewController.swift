@@ -30,11 +30,14 @@ class ViewController: UIViewController {
         
             alertView.dismissWithClickedButtonIndex(-1, animated: true);
             
-            var okAlertView = UIAlertView();
-            okAlertView.message = "OK";
-            okAlertView.show();
-            
-            println("callback")
+            let operationQueue: NSOperationQueue = NSOperationQueue.mainQueue()
+            operationQueue.addOperationWithBlock({ () -> Void in
+                var okAlertView = UIAlertView();
+                okAlertView.message = "OK";
+                okAlertView.show();
+                
+                println("callback")
+            })
         });
     }
     
